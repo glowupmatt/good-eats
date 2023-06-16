@@ -39,7 +39,7 @@ const Header = ({ showNav, setShowNav }) => {
       >
         <nav
           className={classNames(
-            "flex flex-col z-[100] h-[79%] items-end text-start gap-[4rem] justify-center",
+            "flex flex-col z-[100] h-[79%] text-start gap-[4rem] justify-center",
             {
               "w-0 hidden": showNav === false,
               "w-full": showNav === true,

@@ -1,58 +1,82 @@
 import React, { useEffect, useState } from "react";
 import { dishes } from "../utils/boilerInfo";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import BoyIcon from "@mui/icons-material/Boy";
-import * as DOMPurify from "dompurify";
-import { fetchFromAPIBreakfastLunchDinnerSlide } from "../utils/fetchFromAPI";
+import {
+  fetchFromAPIBreakfast,
+  fetchFromAPILunch,
+  fetchFromAPIDinner,
+} from "../utils/fetchFromAPI";
+import DishCardComp from "./DishCardComp";
+import classNames from "classnames";
 
 const MealsSlider = () => {
-  //   const [dishes, setDishes] = useState([]);
-  //   useEffect(() => {
-  //     fetchFromAPIBreakfastLunchDinnerSlide().then((data) =>
-  //       setDishes(data.recipes)
-  //     );
-  //   }, []);
+  const [selected, setSelected] = useState("breakfast");
 
+  const mealSelector = [
+    {
+      id: 1,
+      name: "breakfast",
+      title: "BREAKFAST",
+    },
+    {
+      id: 2,
+      name: "lunch",
+      title: "LUNCH",
+    },
+    {
+      id: 3,
+      name: "dinner",
+      title: "DINNER",
+    },
+  ];
+
+  // const [dishes, setDishes] = useState([]);
+
+  // useEffect(() => {
+  //   fetchFromAPIBreakfast().then((data) => setDishes(data.recipes));
+  //   fetchFromAPILunch().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  //   fetchFromAPIDinner().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  // }, []);
+
+  const totalDishes = dishes.flat();
   return (
-    <div className="flex flex-row overflow-scroll gap-4 mt-[2rem]">
-      {dishes.map((dish, index) => {
-        let cleanDescriptionHTML = DOMPurify.sanitize(dish.summary);
-
-        return (
-          // Dish Card
-          <div
-            key={index}
-            className="p-4 gap-4 flex flex-col w-[16rem] shadow-md"
-          >
-            <div className="rounded-md overflow-hidden relative left-0 object-cover w-[14rem]">
-              <img alt="" src={dish.image} className="rounded-md" />
-            </div>
-            <div className="flex flex-col gap-[.5rem]">
-              <h2 className="text-red font-semibold text-4">{dish.title}</h2>
-              <div
-                className="leading-5"
-                dangerouslySetInnerHTML={{
-                  __html: `${cleanDescriptionHTML.substring(0, 60)} ...`,
-                }}
-              />
-              <div className="flex justify-between text-gray-dark">
-                <p>
-                  <span className="font-bold">Serves </span>
-                  {dish.servings}
-                </p>
-                <BoyIcon />
+    <div className="">
+      <div>
+        <ul className="flex items-center justify-center gap-[2rem] px-[2rem] pt-[2rem] w-full text-[.8rem] font-semibold">
+          {mealSelector.map((meal) => {
+            return (
+              <div className="flex flex-col gap-4">
+                <li
+                  key={meal.id}
+                  onClick={() => setSelected(meal.name)}
+                  className={classNames(" cursor-pointer", {
+                    "text-red": selected === meal.name,
+                    "text-gray-dark": selected === !meal.name,
+                  })}
+                >
+                  {meal.title}
+                </li>
+                <div
+                  className={classNames("border-solid border-b-[.1rem]", {
+                    " border-red": selected === meal.name,
+                    " border-gray-dark ": selected === !meal.name,
+                  })}
+                ></div>
               </div>
-              <div className="flex justify-between text-gray-dark">
-                <p>
-                  <span className="font-bold ">Cook Time </span>{" "}
-                  {dish.readyInMinutes} <span className="">Minutes</span>
-                </p>
-                <AccessTimeIcon />
-              </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })}
+        </ul>
+      </div>
+      <div className="flex flex-row overflow-scroll gap-4">
+        {totalDishes
+          .filter((dish) => dish.dishTypes.includes(selected))
+          .map((dish) => {
+            return <DishCardComp dish={dish} selected={selected} />;
+          })}
+      </div>
     </div>
   );
 };
