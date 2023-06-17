@@ -52,7 +52,11 @@ const DietGrid = () => {
             <button
               onClick={() => setSelected(cuisine.name)}
               className={classNames(
-                "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem]"
+                "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem]",
+                {
+                  "bg-red text-white": selected === cuisine.name,
+                  "bg-gray-dark": selected === !cuisine.name,
+                }
               )}
             >
               {cuisine.title}
