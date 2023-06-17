@@ -42,9 +42,13 @@ const DietGrid = () => {
   const totalDishes = dishes.flat();
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col items-center justify-center p-[1rem]">
-        <h2 className="font-bold text-[2rem]">Top Cuisines</h2>
-        <h2 className="text-red font-medium">Choose your favorite Cuisine</h2>
+      <div className="p-4">
+        <div className="flex flex-col items-center justify-center p-[1rem] bg-gray-dark rounded">
+          <h2 className="font-bold text-[2rem] text-white">Top Cuisines</h2>
+          <h2 className="text-red-pink font-medium">
+            Choose your favorite Cuisine
+          </h2>
+        </div>
       </div>
       <div className="grid grid-rows-2 grid-flow-col gap-[.5rem] items-center justify-center">
         {cuisineSelector.map((cuisine) => {
@@ -54,7 +58,7 @@ const DietGrid = () => {
               className={classNames(
                 "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem]",
                 {
-                  "bg-red text-white": selected === cuisine.name,
+                  "bg-red-pink text-white": selected === cuisine.name,
                   "bg-gray-dark": selected === !cuisine.name,
                 }
               )}

@@ -18,7 +18,9 @@ function App() {
       </div>
       <Search />
       <MealsSlider />
+
       <DietGrid />
+
       <VideoSlider />
       <Footer />
     </div>

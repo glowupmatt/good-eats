@@ -12,7 +12,7 @@ const DishGridItems = ({ dish }) => {
         <img alt="" src={dish.image} className="rounded-md" />
       </div>
       <div className="flex flex-col gap-[.5rem]">
-        <h2 className="text-red font-semibold text-4">{dish.title}</h2>
+        <h2 className="text-red-pink font-semibold text-4">{dish.title}</h2>
         <div
           className="leading-5"
           dangerouslySetInnerHTML={{

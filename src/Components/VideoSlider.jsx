@@ -14,9 +14,13 @@ const VideoSlider = () => {
 
   return (
     <div className="">
-      <div className="flex flex-col items-center justify-center p-[2rem]">
-        <h2 className="font-bold text-[2rem]">Video Recipes</h2>
-        <h2 className="text-red font-medium">Great Dishes With Simple Steps</h2>
+      <div className="p-4">
+        <div className="flex flex-col items-center justify-center p-[2rem] bg-gray-dark rounded">
+          <h2 className="font-bold text-[2rem] text-white">Video Recipes</h2>
+          <h2 className="text-red-pink font-medium">
+            Great Dishes With Simple Steps
+          </h2>
+        </div>
       </div>
       <div className="flex flex-row overflow-scroll gap-4 height-full">
         {videos.map((video) => {

@@ -19,7 +19,7 @@ const Search = () => {
                 className="w-full h-full p-4 focus:outline-none"
               />
               <div className="pr-[.3rem] py-2">
-                <button className="w-[3.5rem] h-[3.5rem] bg-red flex items-center justify-center rounded">
+                <button className="w-[3.5rem] h-[3.5rem] bg-red-pink flex items-center justify-center rounded">
                   <SearchIcon />
                 </button>
               </div>

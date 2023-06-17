@@ -53,7 +53,7 @@ const MealsSlider = () => {
                   key={meal.id}
                   onClick={() => setSelected(meal.name)}
                   className={classNames(" cursor-pointer", {
-                    "text-red": selected === meal.name,
+                    "text-red-pink": selected === meal.name,
                     "text-gray-dark": selected === !meal.name,
                   })}
                 >
@@ -61,7 +61,7 @@ const MealsSlider = () => {
                 </li>
                 <div
                   className={classNames("border-solid border-b-[.1rem]", {
-                    " border-red": selected === meal.name,
+                    " border-red-pink": selected === meal.name,
                     " border-gray-dark ": selected === !meal.name,
                   })}
                 ></div>

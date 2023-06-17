@@ -7,7 +7,7 @@ const VideoCard = ({ video }) => {
         <img alt="" src={video.thumbnail} className="rounded-md h-[11rem]" />
       </div>
       <div className="flex flex-col gap-[.5rem]">
-        <h2 className="text-red font-semibold text-4">{video.title}</h2>
+        <h2 className="text-red-pink font-semibold text-4">{video.title}</h2>
       </div>
     </div>
   );
