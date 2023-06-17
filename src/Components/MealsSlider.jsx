@@ -48,9 +48,8 @@ const MealsSlider = () => {
         <ul className="flex items-center justify-center gap-[2rem] px-[2rem] pt-[2rem] w-full text-[.8rem] font-semibold">
           {mealSelector.map((meal) => {
             return (
-              <div className="flex flex-col gap-4">
+              <div key={meal.id} className="flex flex-col gap-4">
                 <li
-                  key={meal.id}
                   onClick={() => setSelected(meal.name)}
                   className={classNames(" cursor-pointer", {
                     "text-red-pink": selected === meal.name,
@@ -74,7 +73,9 @@ const MealsSlider = () => {
         {totalDishes
           .filter((dish) => dish.dishTypes.includes(selected))
           .map((dish) => {
-            return <DishCardComp dish={dish} selected={selected} />;
+            return (
+              <DishCardComp key={dish.id} dish={dish} selected={selected} />
+            );
           })}
       </div>
     </div>

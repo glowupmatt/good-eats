@@ -24,7 +24,8 @@ const VideoSlider = () => {
       </div>
       <div className="flex flex-row overflow-scroll gap-4 height-full">
         {videos.map((video) => {
-          return <VideoCard video={video} />;
+          console.log(video);
+          return <VideoCard key={video.title} video={video} />;
         })}
       </div>
     </div>

@@ -54,6 +54,7 @@ const DietGrid = () => {
         {cuisineSelector.map((cuisine) => {
           return (
             <button
+              key={cuisine.id}
               onClick={() => setSelected(cuisine.name)}
               className={classNames(
                 "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem]",
@@ -74,7 +75,7 @@ const DietGrid = () => {
           .slice(0, 6)
           .map((dish) => {
             return (
-              <div className="w-full h-full">
+              <div key={dish.id} className="w-full h-full">
                 <DishGridItems dish={dish} selected={selected} />
               </div>
             );

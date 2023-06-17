@@ -1,12 +1,9 @@
 import "./App.css";
-import Search from "./Components/Search";
 import Header from "./Components/Header";
-import MealsSlider from "./Components/MealsSlider";
 import { useState } from "react";
 import classNames from "classnames";
-import DietGrid from "./Components/DietGrid";
-import VideoSlider from "./Components/VideoSlider";
 import Footer from "./Components/Footer";
+import HomePage from "./Components/HomePage";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
@@ -16,12 +13,7 @@ function App() {
       <div className="absolute w-full z-20">
         <Header showNav={showNav} setShowNav={setShowNav} />
       </div>
-      <Search />
-      <MealsSlider />
-
-      <DietGrid />
-
-      <VideoSlider />
+      <HomePage />
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
 
 const Header = ({ showNav, setShowNav }) => {
   const showNavHandler = () => {
@@ -24,7 +25,13 @@ const Header = ({ showNav, setShowNav }) => {
 
         <div className="flex items-center justify-center">
           <p>GOOD</p>
-          <img alt="logo" src="/GoodEatsFolder/logo.png" className="w-[50px]" />
+          <Link to="/">
+            <img
+              alt="logo"
+              src="/GoodEatsFolder/logo.png"
+              className="w-[50px]"
+            />
+          </Link>
           <p>EATS</p>
         </div>
       </div>
@@ -46,10 +53,10 @@ const Header = ({ showNav, setShowNav }) => {
             }
           )}
         >
-          <a href="#">DIETS</a>
-          <a href="#">MEALS</a>
-          <a href="#">CUISINE</a>
-          <a href="#">VIDEOS</a>
+          <Link to="/">MEALS</Link>
+          <Link to="/">DIETS</Link>
+          <Link to="/">CUISINE</Link>
+          <Link to="/videoSlider/">VIDEOS</Link>
         </nav>
       </div>
     </header>
