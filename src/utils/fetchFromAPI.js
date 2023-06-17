@@ -68,32 +68,6 @@ export const fetchFromAPIDinner = async () => {
   return data;
 };
 
-// Video Search
-
-const BASE_URL_VideoSearch =
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/videos/search";
-
-const optionsForVideoSearch = {
-  url: BASE_URL_VideoSearch,
-  params: {
-    query: "dinner",
-    maxLength: "999",
-    number: "10",
-  },
-  headers: {
-    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  },
-};
-
-export const fetchFromAPIVideoSearch = async (url) => {
-  const { data } = await axios.get(
-    `${BASE_URL_VideoSearch}/${url}`,
-    optionsForVideoSearch
-  );
-  return data;
-};
-
 // Instructions Page
 
 // Call by ID For Instructions Comp
