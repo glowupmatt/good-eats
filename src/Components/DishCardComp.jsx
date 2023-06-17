@@ -1,13 +1,17 @@
 import React from "react";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import BoyIcon from "@mui/icons-material/Boy";
+import ScaleIcon from "@mui/icons-material/Scale";
 import * as DOMPurify from "dompurify";
+import { Link } from "react-router-dom";
 
 const DishCardComp = ({ dish }) => {
   let cleanDescriptionHTML = DOMPurify.sanitize(dish.summary);
 
   return (
-    <div className="p-4 gap-4 flex flex-col w-[16rem] shadow-md bg-[#F5F5F4]rounded">
+    <Link
+      to={`/instructions/${dish.id}`}
+      className="p-4 gap-4 flex flex-col w-[16rem] shadow-md bg-[#F5F5F4]rounded"
+    >
       <div className="rounded-md overflow-hidden relative left-0 object-cover w-[14rem]">
         <img alt="" src={dish.image} className="rounded-md" />
       </div>
@@ -21,20 +25,19 @@ const DishCardComp = ({ dish }) => {
         />
         <div className="flex justify-between text-gray-dark">
           <p>
-            <span className="font-bold">Serves </span>
-            {dish.servings}
+            {dish.servings} :<span className="font-bold"> Servings</span>
           </p>
-          <BoyIcon />
+          <ScaleIcon />
         </div>
         <div className="flex justify-between text-gray-dark">
           <p>
             <span className="font-bold ">Cook Time </span> {dish.readyInMinutes}
-            <span className="">Minutes</span>
+            <span className=""> Minutes</span>
           </p>
           <AccessTimeIcon />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

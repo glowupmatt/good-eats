@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import HomePage from "./Components/HomePage";
 import FavoritedDishes from "./Components/FavoritedDishes";
+import Instructions from "./Components/Instructions";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,8 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/videoSlider/",
-    element: <FavoritedDishes />,
+    path: "instructions/:dishId",
+    element: <Instructions />,
   },
 ]);
 

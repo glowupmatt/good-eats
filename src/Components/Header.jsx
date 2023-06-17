@@ -56,7 +56,7 @@ const Header = ({ showNav, setShowNav }) => {
           <Link to="/">MEALS</Link>
           <Link to="/">DIETS</Link>
           <Link to="/">CUISINE</Link>
-          <Link to="/videoSlider/">VIDEOS</Link>
+          <Link to="/">VIDEOS</Link>
         </nav>
       </div>
     </header>
