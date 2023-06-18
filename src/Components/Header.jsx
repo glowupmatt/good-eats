@@ -8,7 +8,6 @@ const Header = ({ showNav, setShowNav }) => {
     setShowNav((prev) => !prev);
   };
 
-  console.log(showNav);
   return (
     <header>
       <div className="flex items-center justify-between p-4 backdrop-blur-xl bg-gray-default z-[200] relative">

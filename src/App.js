@@ -3,17 +3,30 @@ import Header from "./Components/Header";
 import { useState } from "react";
 import classNames from "classnames";
 import Footer from "./Components/Footer";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./Components/HomePage";
+import Instructions from "./Components/Instructions";
+import {
+  fetchFromAPILunch,
+  fetchFromAPIBreakfast,
+  fetchFromAPIDinner,
+  fetchFromAPIoptionsGetAnalyzedRecipeInstructions,
+} from "./utils/fetchFromAPI";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className={classNames("App min-h-screen bg-gray-light")}>
-      <div className="absolute w-full z-20">
+    <div>
+      <div className=" w-full z-20">
         <Header showNav={showNav} setShowNav={setShowNav} />
       </div>
-      <HomePage />
+      <Routes>
+        <Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="instructions/:id" element={<Instructions />} />
+        </Route>
+      </Routes>
       <Footer />
     </div>
   );

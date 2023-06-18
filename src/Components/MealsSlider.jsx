@@ -42,6 +42,7 @@ const MealsSlider = () => {
   // }, []);
 
   const totalDishes = dishes.flat();
+  console.log(totalDishes);
   return (
     <div className="">
       <div>

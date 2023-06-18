@@ -10,8 +10,6 @@ const VideoSlider = () => {
   //     fetchFromAPIVideoSearch().then((data) => setVideos(data.videos));
   //   }, []);
 
-  console.log(videos);
-
   return (
     <div className="">
       <div className="p-4">
@@ -24,7 +22,6 @@ const VideoSlider = () => {
       </div>
       <div className="flex flex-row overflow-scroll gap-4 height-full">
         {videos.map((video) => {
-          console.log(video);
           return <VideoCard key={video.title} video={video} />;
         })}
       </div>

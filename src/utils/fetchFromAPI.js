@@ -78,8 +78,6 @@ const BASE_URL_GetAnalyzedRecipeInstructions =
 const optionsGetAnalyzedRecipeInstructions = {
   url: BASE_URL_GetAnalyzedRecipeInstructions,
   params: {
-    // IdNumber Needed For rest of Link = {324694}/analyzedInstructions
-    // Need to create a state that carries the name for the dish
     stepBreakdown: true,
   },
   headers: {
@@ -90,8 +88,26 @@ const optionsGetAnalyzedRecipeInstructions = {
 
 export const fetchFromAPIoptionsGetAnalyzedRecipeInstructions = async (url) => {
   const { data } = await axios.get(
-    `${BASE_URL_GetAnalyzedRecipeInstructions}/${url}`,
+    `${BASE_URL_GetAnalyzedRecipeInstructions}${url}`,
     optionsGetAnalyzedRecipeInstructions
+  );
+  return data;
+};
+const BASE_URL_GetRecipeInformation =
+  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
+
+const optionsGetRecipeInformation = {
+  url: BASE_URL_GetRecipeInformation,
+  headers: {
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
+
+export const fetchFromAPIGetRecipeInformation = async (url) => {
+  const { data } = await axios.get(
+    `${BASE_URL_GetAnalyzedRecipeInstructions}${url}`,
+    optionsGetRecipeInformation
   );
   return data;
 };
