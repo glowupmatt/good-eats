@@ -70,7 +70,7 @@ export const fetchFromAPIDinner = async () => {
 
 // Instructions Page
 
-// Call by ID For Instructions Comp
+// Call by ID For GetAnalyzedRecipeInstructions
 
 const BASE_URL_GetAnalyzedRecipeInstructions =
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
@@ -93,8 +93,11 @@ export const fetchFromAPIoptionsGetAnalyzedRecipeInstructions = async (url) => {
   );
   return data;
 };
+
+// Call by ID For GetRecipeInformation
+
 const BASE_URL_GetRecipeInformation =
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
+  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
 
 const optionsGetRecipeInformation = {
   url: BASE_URL_GetRecipeInformation,
@@ -106,7 +109,7 @@ const optionsGetRecipeInformation = {
 
 export const fetchFromAPIGetRecipeInformation = async (url) => {
   const { data } = await axios.get(
-    `${BASE_URL_GetAnalyzedRecipeInstructions}${url}`,
+    `${BASE_URL_GetRecipeInformation}${url}`,
     optionsGetRecipeInformation
   );
   return data;

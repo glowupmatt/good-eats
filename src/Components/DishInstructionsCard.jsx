@@ -3,6 +3,8 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ScaleIcon from "@mui/icons-material/Scale";
 
 const DishInstructionsCard = ({ dish }) => {
+  // check if the dish has loaded then returns the dish information
+
   if (dish) {
     return (
       <div className="p-4 gap-2 flex flex-col ">

@@ -9,8 +9,9 @@ const Header = ({ showNav, setShowNav }) => {
   };
 
   return (
-    <header>
-      <div className="flex items-center justify-between p-4 backdrop-blur-xl bg-gray-default z-[200] relative">
+    // This is for the header, only contains the hamburger, cross, logo, and the desktop nav bar
+    <header className="w-full">
+      <div className="flex items-center justify-between p-4 backdrop-blur-xl bg-gray-default z-[200] fixed w-full">
         {!showNav ? (
           <img
             alt=""
@@ -21,6 +22,8 @@ const Header = ({ showNav, setShowNav }) => {
         ) : (
           <CloseIcon onClick={showNavHandler} />
         )}
+
+        {/* Logo for Website */}
 
         <div className="flex items-center justify-center">
           <p>GOOD</p>
@@ -34,6 +37,7 @@ const Header = ({ showNav, setShowNav }) => {
           <p>EATS</p>
         </div>
       </div>
+      {/* This is the mobile nav */}
       <div
         className={classNames(
           "right-0 top-0 p-[5rem] backdrop-blur-xl fixed flex z-[150] bg-gray-default",

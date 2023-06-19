@@ -1,45 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DishGridItems from "./DishGridItems";
 import classNames from "classnames";
 import DishCardComp from "./DishCardComp";
-import { dishes } from "../utils/boilerInfo";
+import { dishes } from "../utils/dishesInfo";
+import {
+  fetchFromAPIGetMexicanFood,
+  fetchFromAPIGetAsianFood,
+  fetchFromAPIGetItalianFood,
+  fetchFromAPIGetKoreanFood,
+  fetchFromAPIGetSpanishFood,
+  fetchFromAPIGetThaiFood,
+} from "../utils/fetchFromAPIDietGrid";
 
 const DietGrid = () => {
-  const [selected, setSelected] = useState("italian");
+  const [selected, setSelected] = useState("Mexican");
+  // const [dishes, setDishes] = useState([]);
+
+  // The cuisineSelector is an array of the top cuisines
   const cuisineSelector = [
     {
       id: 1,
-      name: "mexican",
+      name: "Mexican",
       title: "MEXICAN",
     },
     {
       id: 2,
-      name: "italian",
+      name: "Italian",
       title: "ITALIAN",
     },
     {
       id: 3,
-      name: "asian",
+      name: "Asian",
       title: "ASIAN",
     },
     {
       id: 4,
-      name: "thai",
+      name: "Thai",
       title: "THAI",
     },
     {
       id: 5,
-      name: "spanish",
+      name: "Spanish",
       title: "SPANISH",
     },
     {
       id: 6,
-      name: "korean",
+      name: "Korean",
       title: "KOREAN",
     },
   ];
 
+  // useEffect(() => {
+  //   fetchFromAPIGetAsianFood().then((data) => setDishes(data.recipes));
+  //   fetchFromAPIGetItalianFood().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  //   fetchFromAPIGetThaiFood().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  //   fetchFromAPIGetMexicanFood().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  //   fetchFromAPIGetKoreanFood().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  //   fetchFromAPIGetSpanishFood().then((data) =>
+  //     setDishes((prev) => [...prev, data.recipes])
+  //   );
+  // }, []);
+
+  // variable that flattens the multi call state, there are two arrays inside two array
   const totalDishes = dishes.flat();
+
+  console.log(totalDishes);
   return (
     <div className="flex flex-col gap-4">
       <div className="p-4">
@@ -70,8 +103,9 @@ const DietGrid = () => {
         })}
       </div>
       <div className="grid auto-rows-auto grid-cols-2 gap-[.5rem]">
+        {/* Displays the dishes and information on each card */}
         {totalDishes
-          //   .filter((dish) => dish.cuisines === selected)
+          .filter((dish) => dish.cuisines.includes(selected))
           .slice(0, 6)
           .map((dish) => {
             return (

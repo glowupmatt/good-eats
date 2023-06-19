@@ -8,6 +8,8 @@ import {
 import DishCardComp from "./DishCardComp";
 import classNames from "classnames";
 
+// the categories for the meal slider under the search tab
+
 const MealsSlider = () => {
   const [selected, setSelected] = useState("breakfast");
 
@@ -29,6 +31,8 @@ const MealsSlider = () => {
     },
   ];
 
+  //calling the api Function for the dish information
+
   // const [dishes, setDishes] = useState([]);
 
   // useEffect(() => {
@@ -41,12 +45,14 @@ const MealsSlider = () => {
   //   );
   // }, []);
 
+  // variable that flattens the multi call state, there are two arrays inside two array
   const totalDishes = dishes.flat();
-  console.log(totalDishes);
+
   return (
     <div className="">
       <div>
         <ul className="flex items-center justify-center gap-[2rem] px-[2rem] pt-[2rem] w-full text-[.8rem] font-semibold">
+          {/* This maps over mealSelector array and allows you to select the filter that the end user wants */}
           {mealSelector.map((meal) => {
             return (
               <div key={meal.id} className="flex flex-col gap-4">
@@ -71,6 +77,7 @@ const MealsSlider = () => {
         </ul>
       </div>
       <div className="flex flex-row overflow-scroll gap-4">
+        {/* filters through the api's information using the above 'selected' state then returns a mapped array that holds that filtered information */}
         {totalDishes
           .filter((dish) => dish.dishTypes.includes(selected))
           .map((dish) => {

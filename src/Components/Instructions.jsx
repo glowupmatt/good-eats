@@ -9,6 +9,7 @@ import {
   fetchFromAPIGetRecipeInformation,
 } from "../utils/fetchFromAPI";
 import DishCardComp from "./DishCardComp";
+import Footer from "./Footer";
 
 const Instructions = () => {
   const [checked, setChecked] = useState([]);
@@ -20,7 +21,11 @@ const Instructions = () => {
     setShowIngredients((prev) => !prev);
   };
 
+  // using the useParams hook in order to fetch the parameters specified from the all the card comps <Link to={`/instructions/${dish.id}`} This is also linked through the app.js on the route
+
   const idTag = useParams();
+
+  // created a useEffect to receive the information from two API calls, first one receives the instructions/ingredients, second one receives the photo and title. Used the ID tag as the id holder to complete the url query.
 
   useEffect(() => {
     fetchFromAPIoptionsGetAnalyzedRecipeInstructions(
@@ -32,7 +37,7 @@ const Instructions = () => {
   }, [idTag.id]);
 
   return (
-    <div className="">
+    <div className="relative top-[6rem]">
       <DishInstructionsCard dish={dishInfo} />
       <IngredientsAccordian
         dishes={dishInfo}
@@ -40,6 +45,7 @@ const Instructions = () => {
         showIngredients={showIngredients}
       />
       <div className="p-4">
+        {/* Checks if the dish && steps loaded then will return the rest of the page */}
         {dish &&
           dish[0].steps.map((step, index) => {
             const checkHandler = () => {
@@ -71,6 +77,7 @@ const Instructions = () => {
             );
           })}
       </div>
+      <Footer />
     </div>
   );
 };
