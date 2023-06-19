@@ -76,9 +76,11 @@ const DietGrid = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="p-4">
-        <div className="flex flex-col items-center justify-center p-[1rem] bg-gray-dark rounded">
-          <h2 className="font-bold text-[2rem] text-white">Top Cuisines</h2>
-          <h2 className="text-red-pink font-medium">
+        <div className="flex flex-col items-center justify-center p-[2rem] bg-gray-dark rounded lg:p-[3rem]">
+          <h2 className="font-bold text-[2rem] text-white lg:text-[4rem]">
+            Top Cuisines
+          </h2>
+          <h2 className="text-red-pink font-medium lg:text-[2rem]">
             Choose your favorite Cuisine
           </h2>
         </div>
@@ -90,10 +92,12 @@ const DietGrid = () => {
               key={cuisine.id}
               onClick={() => setSelected(cuisine.name)}
               className={classNames(
-                "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem]",
+                "p-[.5rem] rounded-[10rem] bg-gray-default font-small text-[.7rem] w-[5rem] md:h-[3rem] md:w-[10rem] md:text-[1rem] hover:drop-shadow-lg",
                 {
-                  "bg-red-pink text-white": selected === cuisine.name,
-                  "bg-gray-dark": selected === !cuisine.name,
+                  "bg-red-pink text-white lg:hover:bg-[#ec5031]":
+                    selected === cuisine.name,
+                  "bg-gray-dark lg:hover:bg-gray-light":
+                    selected === !cuisine.name,
                 }
               )}
             >
@@ -102,14 +106,17 @@ const DietGrid = () => {
           );
         })}
       </div>
-      <div className="grid auto-rows-auto grid-cols-2 gap-[.5rem]">
+      <div className="grid auto-rows-auto grid-cols-2 gap-[.5rem] lg:grid-cols-3">
         {/* Displays the dishes and information on each card */}
         {totalDishes
           .filter((dish) => dish.cuisines.includes(selected))
           .slice(0, 6)
           .map((dish) => {
             return (
-              <div key={dish.id} className="w-full h-full">
+              <div
+                key={dish.id}
+                className="w-full h-full lg:hover:bg-gray-light hover:drop-shadow-2xl"
+              >
                 <DishGridItems dish={dish} selected={selected} />
               </div>
             );

@@ -11,17 +11,21 @@ function App() {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div>
+    <div className=" lg:flex lg:flex-col lg:items-center lg:justify-center lg:w-full">
       <div className="w-full z-20">
         <Header showNav={showNav} setShowNav={setShowNav} />
       </div>
-      {/* Wrapped the Comps with routes hook in order to create the route for each page */}
-      <Routes>
-        <Route>
-          <Route path="/" element={<HomePage />} />
-          <Route path="instructions/:id" element={<Instructions />} />
-        </Route>
-      </Routes>
+      <div className="lg:max-w-full">
+        <div className="relative md:top-[2rem]">
+          {/* Wrapped the Comps with routes hook in order to create the route for each page */}
+          <Routes>
+            <Route>
+              <Route path="/" element={<HomePage />} />
+              <Route path="instructions/:id" element={<Instructions />} />
+            </Route>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

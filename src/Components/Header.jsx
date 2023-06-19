@@ -11,30 +11,45 @@ const Header = ({ showNav, setShowNav }) => {
   return (
     // This is for the header, only contains the hamburger, cross, logo, and the desktop nav bar
     <header className="w-full">
-      <div className="flex items-center justify-between p-4 backdrop-blur-xl bg-gray-default z-[200] fixed w-full">
-        {!showNav ? (
-          <img
-            alt=""
-            src="/bars-solid.svg"
-            className="w-[20px]"
-            onClick={showNavHandler}
-          />
-        ) : (
-          <CloseIcon onClick={showNavHandler} />
-        )}
-
-        {/* Logo for Website */}
-
-        <div className="flex items-center justify-center">
-          <p>GOOD</p>
-          <Link to="/">
+      <div className="flex justify-center">
+        <div className="flex items-center justify-between p-4  backdrop-blur-xl bg-gray-default lg:bg-white lg:backdrop-blur-0 z-[200] fixed w-full md:px-[2rem] md:py-[1rem] lg:px-[8rem] lg:absolute lg:w-[80%]">
+          <nav className="hidden lg:flex lg:z-[100] lg:h-[79%] lg:text-start lg:gap-[4rem] lg:justify-center">
+            <Link to="/">MEALS</Link>
+            <Link to="/">DIETS</Link>
+          </nav>
+          {!showNav ? (
             <img
-              alt="logo"
-              src="/GoodEatsFolder/logo.png"
-              className="w-[50px]"
+              alt=""
+              src="/bars-solid.svg"
+              className="w-[20px] md:w-[2.5rem] lg:hidden"
+              onClick={showNavHandler}
             />
-          </Link>
-          <p>EATS</p>
+          ) : (
+            <img
+              alt=""
+              src="/GoodEatsFolder/xmark-solid (1).svg"
+              className="w-[20px] md:w-[2.5rem] lg:hidden"
+              onClick={showNavHandler}
+            />
+          )}
+
+          {/* Logo for Website */}
+
+          <div className="flex items-center justify-center">
+            <p className="md:text-[1.6rem]">GOOD</p>
+            <Link to="/">
+              <img
+                alt="logo"
+                src="/GoodEatsFolder/logo.png"
+                className="w-[50px] md:w-[5rem]"
+              />
+            </Link>
+            <p className="md:text-[1.6rem]">EATS</p>
+          </div>
+          <nav className="hidden lg:flex lg:z-[100] lg:h-[79%] lg:text-start lg:gap-[4rem] lg:justify-center">
+            <Link to="/">CUISINE</Link>
+            <Link to="/">VIDEOS</Link>
+          </nav>
         </div>
       </div>
       {/* This is the mobile nav */}

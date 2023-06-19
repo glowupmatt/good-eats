@@ -17,8 +17,8 @@ const Footer = () => {
       <div className="flex overflow-hidden justify-center items-start h-[12rem]">
         <img
           alt=""
-          src="/GoodEatsFolder/good-eats-footer.png"
-          className="max-w-[33rem] h-[14rem] relative"
+          src="/GoodEatsFolder/3.png"
+          className="max-w-[33rem] h-[14rem] relative md:max-w-full md:h-auto"
         />
       </div>
     </footer>
