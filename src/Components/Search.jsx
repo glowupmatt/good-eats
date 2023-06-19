@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Search = () => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+
+  const updateMedia = () => {
+    setIsDesktop(window.innerWidth > 1024);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
     <div className="flex items-center justify-center">
       <header className="w-full h-full">
         <div className="searchBar flex flex-col items-center overflow-hidden  w-full h-[27rem] xl:h-[36rem]">
           <div className="z-10 relative top-[10rem] flex flex-col items-center justify-center xl:top-[14rem]">
-            <h2 className="relative  text-white font-bold text-[2rem] text-center">
-              WHATS GOOD <br></br>TODAY
-            </h2>
-            <div className=" w-full h-[4rem] flex items-center justify-center relative pl-[0.2rem] bg-white rounded md:w-[30rem]">
+            {isDesktop ? (
+              <h2 className="relative text-white font-bold lg:text-[3rem] text-center">
+                WHATS GOOD TODAY
+              </h2>
+            ) : (
+              <h2 className="relative  text-white font-bold text-[2rem] text-center">
+                WHATS GOOD <br></br>TODAY
+              </h2>
+            )}
+            <div className=" w-full h-[4rem] flex items-center justify-center relative pl-[0.2rem] bg-white rounded md:w-[30rem] lg:w-[40rem]">
               <input
                 type="text"
                 placeholder="Search For Whats Good"

@@ -16,7 +16,7 @@ function App() {
         <Header showNav={showNav} setShowNav={setShowNav} />
       </div>
       <div className="lg:max-w-full">
-        <div className="relative md:top-[2rem]">
+        <div className="relative md:top-[2rem] lg:top-[10rem]">
           {/* Wrapped the Comps with routes hook in order to create the route for each page */}
           <Routes>
             <Route>
