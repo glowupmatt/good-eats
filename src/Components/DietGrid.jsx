@@ -71,7 +71,6 @@ const DietGrid = () => {
 
   // variable that flattens the multi call state, there are two arrays inside two array
   const totalDishes = dishes.flat();
-
   console.log(totalDishes);
   return (
     <div className="flex flex-col gap-4">

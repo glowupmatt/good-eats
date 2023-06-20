@@ -9,6 +9,8 @@ import {
   fetchFromAPIGetRecipeInformation,
 } from "../utils/fetchFromAPI";
 import DishCardComp from "./DishCardComp";
+// import { dishInfo } from "../utils/dishInfo";
+// import { dishes } from "../utils/boilerInfo";
 import Footer from "./Footer";
 
 const Instructions = () => {
@@ -36,6 +38,8 @@ const Instructions = () => {
     );
   }, [idTag.id]);
 
+  console.log(dish);
+
   return (
     <div className="relative top-[6rem]">
       <DishInstructionsCard dish={dishInfo} />
@@ -44,9 +48,10 @@ const Instructions = () => {
         showIngredientsHandler={showIngredientsHandler}
         showIngredients={showIngredients}
       />
-      <div className="p-4">
+      <div className="p-4 flex flex-col gap-[2rem] justify-center">
         {/* Checks if the dish && steps loaded then will return the rest of the page */}
         {dish &&
+          // dish.extendedIngredients.map((step, index) => {
           dish[0].steps.map((step, index) => {
             const checkHandler = () => {
               if (!checked.includes(index)) {
@@ -57,11 +62,11 @@ const Instructions = () => {
             };
 
             return (
-              <div key={step.number} className="flex gap-4">
+              <div key={step.number} className="flex gap-4 items-center">
                 <button
                   onClick={checkHandler}
                   className={classNames(
-                    "rounded-full w-[11rem] h-[2rem] grid items-center justify-center",
+                    "rounded-full max-w-[2rem] h-full block items-center justify-center",
                     {
                       "border-none bg-red-pink text-white":
                         checked.includes(index),
@@ -72,12 +77,11 @@ const Instructions = () => {
                 >
                   <CheckIcon />
                 </button>
-                {index + 1}.<p className="w-[75rem]">{step.step}</p>
+                {index + 1}.<p className="w-[75rem] leading-3 ">{step.step}</p>
               </div>
             );
           })}
       </div>
-      <Footer />
     </div>
   );
 };

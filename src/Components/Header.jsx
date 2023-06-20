@@ -12,7 +12,7 @@ const Header = ({ showNav, setShowNav }) => {
     // This is for the header, only contains the hamburger, cross, logo, and the desktop nav bar
     <header className="w-full">
       <div className="flex justify-center">
-        <div className="flex items-center justify-between p-4  backdrop-blur-xl bg-gray-default lg:bg-white lg:backdrop-blur-0 z-[200] fixed w-full md:px-[2rem] md:py-[1rem] xl:px-[8rem] lg:absolute lg:w-[80%] xl:h-[13rem]">
+        <div className="flex items-center justify-between p-4  backdrop-blur-xl bg-gray-default lg:bg-gray-light lg:backdrop-blur-0 z-[200] fixed w-full md:px-[2rem] md:py-[1rem] xl:px-[8rem] lg:absolute lg:w-full">
           <nav className="hidden lg:flex lg:z-[100] lg:h-[79%] lg:text-start lg:gap-[4rem] lg:justify-center xl:text-[1.8rem] xl:items-center">
             <Link to="/" className="hover:text-red-pink">
               MEALS

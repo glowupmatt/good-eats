@@ -11,7 +11,7 @@ export const IngredientsAccordian = ({
 }) => {
   if (dishes) {
     return (
-      <div>
+      <div className="md:hidden">
         <div className="flex items-center justify-center my-4">
           <div className="border-solid border-gray-default border-[1px] rounded-md h-full w-[80%]">
             <button
@@ -39,7 +39,6 @@ export const IngredientsAccordian = ({
               })}
             >
               {dishes.extendedIngredients.map((ingredient) => {
-                console.log(ingredient);
                 return (
                   <div className="flex gap-4 justify-between">
                     <li className="list-disc">

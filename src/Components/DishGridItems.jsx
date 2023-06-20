@@ -20,7 +20,7 @@ const DishGridItems = ({ dish }) => {
 
   return (
     <Link to={`/instructions/${dish.id}`}>
-      <div className="p-4 gap-2 flex flex-col w-full shadow-md h-[24rem] justify-center lg:h-[31rem]">
+      <div className="p-4 gap-2 flex flex-col w-full shadow-md h-[24rem] justify-center md:h-[31rem]">
         <div className="rounded-md overflow-hidden relative left-0 object-cover w-full lg:h-[20rem]">
           <img alt="" src={dish.image} className="rounded-md" />
         </div>

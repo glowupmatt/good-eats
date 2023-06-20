@@ -12,7 +12,6 @@ const HomePage = () => {
       <MealsSlider />
       <DietGrid />
       <VideoSlider />
-      <Footer />
     </div>
   );
 };
