@@ -13,10 +13,10 @@ export const IngredientsAccordian = ({
     return (
       <div className="md:hidden">
         <div className="flex items-center justify-center my-4">
-          <div className="border-solid border-gray-default border-[1px] rounded-md h-full w-[80%]">
+          <div className="border-solid border-gray-default border-[1px] rounded-md h-full">
             <button
               onClick={showIngredientsHandler}
-              className="flex items-center justify-between w-full p-[.7rem]"
+              className="flex items-center justify-between w-[17rem] p-[.7rem]"
             >
               <div className="flex items-center justify-center gap-4">
                 <MenuBookIcon />
@@ -35,7 +35,7 @@ export const IngredientsAccordian = ({
               className={classNames("p-4", {
                 "h-full w-full grid grid-flow-row auto-cols-fr border-t-[1px] py-4 pr-4 pl-[2rem] border-gray-default":
                   showIngredients === true,
-                "h-0 w-0 hidden": showIngredients === false,
+                "h-0 hidden": showIngredients === false,
               })}
             >
               {dishes.extendedIngredients.map((ingredient) => {

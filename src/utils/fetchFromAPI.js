@@ -114,3 +114,24 @@ export const fetchFromAPIGetRecipeInformation = async (url) => {
   );
   return data;
 };
+
+//Related Recipes
+
+const BASE_URL_GeRelatedRecipes =
+  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
+
+const optionsGeRelatedRecipe = {
+  url: BASE_URL_GetRecipeInformation,
+  headers: {
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
+
+export const fetchFromAPIGeRelatedRecipes = async (url) => {
+  const { data } = await axios.get(
+    `${BASE_URL_GeRelatedRecipes}${url}`,
+    optionsGeRelatedRecipe
+  );
+  return data;
+};

@@ -8,7 +8,8 @@ const BASE_URL_VideoSearch =
 const optionsForVideoSearch = {
   url: BASE_URL_VideoSearch,
   params: {
-    type: "main course",
+    type: "main course ",
+    cuisine: "vietnamese",
     number: "5",
   },
   headers: {

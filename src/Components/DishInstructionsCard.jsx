@@ -10,10 +10,9 @@ const DishInstructionsCard = ({ dish }) => {
   //delete the number in the dish[0]
 
   if (dish) {
-    console.log(dish);
     return (
       <div className="p-4 gap-2 flex flex-col md:flex-col lg:flex-row justify-center lg:py-[1rem]">
-        <div className="rounded-md overflow-hidden relative left-0 object-cover w-full justify-center flex">
+        <div className="rounded-md overflow-hidden relative left-0 object-cover w-full justify-center flex bg-gray-light">
           <img
             alt={dish.title}
             src={dish.image}
@@ -42,8 +41,10 @@ const DishInstructionsCard = ({ dish }) => {
             <ul className="hidden  md:grid md:grid-cols-2 md:grid-flow-row md:justify-center md:items-center gap-x-[2rem] lg:flex lg:flex-col xl:grid xl:grid-cols-2 xl:grid-flow-row">
               {dish.extendedIngredients.map((ingredient) => {
                 return (
-                  <div className="flex gap-2 justify-between md:flex-row md:w-[14rem] lg:w-full">
-                    .
+                  <div
+                    key={ingredient.name}
+                    className="flex gap-2 justify-between md:flex-row md:w-[14rem] lg:w-full"
+                  >
                     <li className="list-disc flex gap-[.5rem] font-bold md:w-[50%]">
                       {ingredient.measures.us.amount}
                       <span> {ingredient.measures.us.unitShort}</span>
@@ -56,19 +57,6 @@ const DishInstructionsCard = ({ dish }) => {
               })}
             </ul>
           </div>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <div
-          className="inline-block h-8 w-8 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
-          role="status"
-        >
-          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-            Loading...
-          </span>
         </div>
       </div>
     );

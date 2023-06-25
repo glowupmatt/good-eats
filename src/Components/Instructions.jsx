@@ -8,6 +8,7 @@ import {
   fetchFromAPIoptionsGetAnalyzedRecipeInstructions,
   fetchFromAPIGetRecipeInformation,
 } from "../utils/fetchFromAPI";
+import RelatedRecipes from "./RelatedRecipes";
 import DishCardComp from "./DishCardComp";
 // import { dishInfo } from "../utils/dishInfo";
 // import { dishes } from "../utils/boilerInfo";
@@ -38,49 +39,54 @@ const Instructions = () => {
     );
   }, [idTag.id]);
 
-  console.log(dish);
-
   return (
-    <div className="relative top-[6rem]">
+    <div className="flex flex-col justify-center relative top-[6rem] items-center">
       <DishInstructionsCard dish={dishInfo} />
       <IngredientsAccordian
         dishes={dishInfo}
         showIngredientsHandler={showIngredientsHandler}
         showIngredients={showIngredients}
       />
-      <div className="p-4 flex flex-col gap-[2rem] justify-center">
-        {/* Checks if the dish && steps loaded then will return the rest of the page */}
-        {dish &&
-          // dish.extendedIngredients.map((step, index) => {
-          dish[0].steps.map((step, index) => {
-            const checkHandler = () => {
-              if (!checked.includes(index)) {
-                setChecked((prev) => [...prev, index]);
-              } else {
-                setChecked((prev) => prev.filter((value) => value !== index));
-              }
-            };
+      <div className="flex flex-col lg:flex-row justify-between md:p-4 md:w-[80%] gap-[2rem] lg:w-full">
+        <div className="flex w-full flex-col gap-[2rem] justify-center lg:justify-normal p-0 lg:p-4 lg:w-full">
+          <h2 className="font-bold text-[2rem] lg:text-[5rem] text-center bg-gray-light rounded-md p-4 lg:w-full">
+            Instructions
+          </h2>
+          {/* Checks if the dish && steps loaded then will return the rest of the page */}
+          {dish &&
+            // dish.extendedIngredients.map((step, index) => {
+            dish[0].steps.map((step, index) => {
+              const checkHandler = () => {
+                if (!checked.includes(index)) {
+                  setChecked((prev) => [...prev, index]);
+                } else {
+                  setChecked((prev) => prev.filter((value) => value !== index));
+                }
+              };
 
-            return (
-              <div key={step.number} className="flex gap-4 items-center">
-                <button
-                  onClick={checkHandler}
-                  className={classNames(
-                    "rounded-full max-w-[2rem] h-full block items-center justify-center",
-                    {
-                      "border-none bg-red-pink text-white":
-                        checked.includes(index),
-                      "border-gray-default border-solid border text-red-pink":
-                        !checked.includes(index),
-                    }
-                  )}
-                >
-                  <CheckIcon />
-                </button>
-                {index + 1}.<p className="w-[75rem] leading-3 ">{step.step}</p>
-              </div>
-            );
-          })}
+              return (
+                <div key={step.number} className="flex gap-4 items-center">
+                  <button
+                    onClick={checkHandler}
+                    className={classNames(
+                      "rounded-full max-w-[2rem] h-[2rem] block items-center justify-center",
+                      {
+                        "border-none bg-red-pink text-white":
+                          checked.includes(index),
+                        "border-gray-default border-solid border text-red-pink":
+                          !checked.includes(index),
+                      }
+                    )}
+                  >
+                    <CheckIcon />
+                  </button>
+                  {index + 1}
+                  <p className="">{step.step}</p>
+                </div>
+              );
+            })}
+        </div>
+        <RelatedRecipes />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import BoyIcon from "@mui/icons-material/Boy";
+import ScaleIcon from "@mui/icons-material/Scale";
 import * as DOMPurify from "dompurify";
 import { Link } from "react-router-dom";
 
@@ -40,10 +40,9 @@ const DishGridItems = ({ dish }) => {
           />
           <div className="flex justify-between text-gray-dark">
             <p>
-              <span className="font-bold">Serves </span>
-              {dish.servings}
+              {dish.servings} <span className="font-bold"> Servings</span>
             </p>
-            <BoyIcon />
+            <ScaleIcon />
           </div>
           <div className="flex justify-between text-gray-dark">
             <p>
