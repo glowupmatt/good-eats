@@ -69,7 +69,7 @@ const Instructions = () => {
                   <button
                     onClick={checkHandler}
                     className={classNames(
-                      "rounded-full max-w-[2rem] h-[2rem] block items-center justify-center",
+                      "rounded-full max-w-[2rem] block items-center justify-center",
                       {
                         "border-none bg-red-pink text-white":
                           checked.includes(index),
@@ -81,7 +81,7 @@ const Instructions = () => {
                     <CheckIcon />
                   </button>
                   {index + 1}
-                  <p className="">{step.step}</p>
+                  <p className="lg:text-[1.5rem]">{step.step}</p>
                 </div>
               );
             })}

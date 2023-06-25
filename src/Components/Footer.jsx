@@ -5,9 +5,9 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 
 const Footer = () => {
   return (
-    <footer className="overflow-hidden relative flex justify-center items-center lg:bottom-[-5rem]">
+    <footer className="overflow-hidden relative flex justify-center items-center bottom-[-8rem]">
       <div className="flex flex-col items-center justify-center gap-4 w-full absolute z-20 text-white backdrop-blur-xl p-4">
-        <h2>FOLLOW US HERE</h2>
+        <h2 className="lg:text-[2rem]">FOLLOW US HERE</h2>
         <div className="flex gap-4">
           <InstagramIcon />
           <FacebookIcon />
