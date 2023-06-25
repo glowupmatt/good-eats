@@ -16,7 +16,7 @@ const DishInstructionsCard = ({ dish }) => {
           <img
             alt={dish.title}
             src={dish.image}
-            className="rounded-md xl:h-[30rem]"
+            className="rounded-md xl:h-[30rem] bg-gray-default"
           />
         </div>
         <div className="bg-gray-light flex flex-col justify-center gap-2 p-4 rounded-md  text-center drop-shadow-[5px_0px_5px_rgba(0,0,0,0.25)] lg:w-full lg:px-[5rem]">

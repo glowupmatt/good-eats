@@ -41,8 +41,6 @@ const RelatedRecipes = () => {
         })}
       </div>
     );
-  } else {
-    return <div>loading</div>;
   }
 };
 
