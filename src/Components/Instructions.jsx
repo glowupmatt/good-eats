@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import DishInstructionsCard from "./DishInstructionsCard";
-import classNames from "classnames";
-import CheckIcon from "@mui/icons-material/Check";
 import { IngredientsAccordian } from "./IngredientsAccordian";
 import { useParams } from "react-router-dom";
 import {
@@ -10,10 +8,6 @@ import {
 } from "../utils/fetchFromAPI";
 import InstructionsBody from "./InstructionsBody";
 import RelatedRecipes from "./RelatedRecipes";
-import DishCardComp from "./DishCardComp";
-// import { dishInfo } from "../utils/dishInfo";
-// import { dishes } from "../utils/boilerInfo";
-import Footer from "./Footer";
 import LoadingScreen from "../LoadingScreen";
 
 const Instructions = () => {
@@ -41,10 +35,30 @@ const Instructions = () => {
     );
   }, [idTag.id]);
 
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  window.addEventListener("scroll", toggleVisible);
+
   console.log(dish);
 
   return (
-    <div className="flex flex-col justify-center relative top-[6rem] items-center">
+    <div className="flex flex-col justify-center relative mt-[5rem] items-center">
       <DishInstructionsCard dish={dishInfo} />
       <IngredientsAccordian
         dishes={dishInfo}
@@ -65,7 +79,7 @@ const Instructions = () => {
             </div>
           ) : (
             <div>
-              <h2 className="font-bold text-[2rem] lg:text-[5rem] text-center bg-gray-light rounded-md p-4 lg:w-full">
+              <h2 className="font-bold text-[2rem] lg:text-[5rem] text-center bg-gray-light rounded-md p-4 lg:w-full mb-4">
                 Instructions
               </h2>
               {dish[0].steps.map((step, index) => (
@@ -77,10 +91,13 @@ const Instructions = () => {
                   setChecked={setChecked}
                 />
               ))}
+              s
             </div>
           )}
         </div>
-        <RelatedRecipes />
+        <div onClick={scrollToTop} className="lg:w-[30%]">
+          <RelatedRecipes />
+        </div>
       </div>
     </div>
   );

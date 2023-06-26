@@ -18,7 +18,7 @@ const RelatedRecipes = () => {
     return (
       <div
         className="flex
-            flex-col md:grid md:grid-cols-2 md:auto-rows-auto w-full lg:flex lg:flex-col lg:w-[30%] gap-[1rem] bg-gray-default p-4 items-center justify-center rounded-md"
+            flex-col md:grid md:grid-cols-2 md:auto-rows-auto w-full lg:flex lg:flex-col gap-[1rem] bg-gray-default p-4 items-center justify-center rounded-md"
       >
         <h2 className="text-[2rem] font-semibold md:text-[3rem] md:text-center">
           Related Recipes

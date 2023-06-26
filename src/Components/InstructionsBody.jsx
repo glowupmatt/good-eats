@@ -12,7 +12,7 @@ const InstructionsBody = ({ step, index, checked, setChecked }) => {
   };
 
   return (
-    <div key={step.number} className="flex gap-4 items-center">
+    <div key={step.number} className="flex gap-4 items-center mb-4">
       <button
         onClick={checkHandler}
         className={classNames(

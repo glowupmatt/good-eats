@@ -7,17 +7,19 @@ import { IngredientsAccordian } from "./IngredientsAccordian";
 const DishInstructionsCard = ({ dish }) => {
   // check if the dish has loaded then returns the dish information
 
-  //delete the number in the dish[0]
-
   if (dish) {
     return (
-      <div className="p-4 gap-2 flex flex-col md:flex-col lg:flex-row justify-center lg:py-[1rem]">
+      <div className="p-4 gap-2 flex flex-col md:flex-col lg:flex-row justify-center lg:py-[1rem] bg-gray-light rounded-lg">
         <div className="rounded-md overflow-hidden relative left-0 object-cover w-full justify-center flex bg-gray-light">
-          <img
-            alt={dish.title}
-            src={dish.image}
-            className="rounded-md xl:h-[30rem] bg-gray-default"
-          />
+          {!dish.image ? (
+            <h1>Loading</h1>
+          ) : (
+            <img
+              alt={dish.title}
+              src={dish.image}
+              className="rounded-md xl:h-[30rem] bg-gray-default"
+            />
+          )}
         </div>
         <div className="bg-gray-light flex flex-col justify-center gap-2 p-4 rounded-md  text-center drop-shadow-[5px_0px_5px_rgba(0,0,0,0.25)] lg:w-full lg:px-[5rem]">
           <h1 className="text-red-pink font-medium text-[2rem] leading-[2rem] drop-shadow-[0_.5rem_.5rem_rgba(242,135,114,0.25)]">
