@@ -55,8 +55,6 @@ const Instructions = () => {
 
   window.addEventListener("scroll", toggleVisible);
 
-  console.log(dish);
-
   return (
     <div className="flex flex-col justify-center relative mt-[5rem] items-center">
       <DishInstructionsCard dish={dishInfo} />

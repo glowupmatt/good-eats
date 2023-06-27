@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
-import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 
 const Header = ({ showNav, setShowNav }) => {
@@ -14,7 +13,7 @@ const Header = ({ showNav, setShowNav }) => {
       <div className="flex justify-center">
         <div className="flex items-center justify-between p-4  backdrop-blur-xl bg-gray-default lg:bg-gray-light lg:backdrop-blur-0 z-[200] fixed w-full md:px-[2rem] md:py-[1rem] xl:px-[8rem] lg:absolute lg:w-full">
           <nav className="hidden lg:flex lg:z-[100] lg:h-[79%] lg:text-start lg:gap-[4rem] lg:justify-center xl:text-[1.8rem] xl:items-center">
-            <Link to="/" className="hover:text-red-pink">
+            <Link to="meals/" className="hover:text-red-pink">
               MEALS
             </Link>
             <Link to="/" className="hover:text-red-pink">
@@ -79,7 +78,7 @@ const Header = ({ showNav, setShowNav }) => {
             }
           )}
         >
-          <Link to="/">MEALS</Link>
+          <Link to="meals/">MEALS</Link>
           <Link to="/">DIETS</Link>
           <Link to="/">CUISINE</Link>
           <Link to="/">VIDEOS</Link>

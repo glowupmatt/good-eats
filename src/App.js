@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import Instructions from "./Components/Instructions";
+import MealsMainGrid from "./Components/GridComps/MealsMainGrid";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
@@ -16,12 +17,13 @@ function App() {
         <Header showNav={showNav} setShowNav={setShowNav} />
       </div>
       <div className="lg:max-w-full">
-        <div className="relative md:top-[2rem] lg:top-[2rem] p-[.5rem]">
+        <div className="relative mt-[2rem] p-[.5rem]">
           {/* Wrapped the Comps with routes hook in order to create the route for each page */}
           <Routes>
             <Route>
               <Route path="/" element={<HomePage />} />
               <Route path="instructions/:id" element={<Instructions />} />
+              <Route path="meals/" element={<MealsMainGrid />} />
             </Route>
           </Routes>
         </div>
