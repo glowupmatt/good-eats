@@ -23,7 +23,7 @@ const VideoSlider = () => {
         </div>
       </div>
       <div className="flex flex-row overflow-scroll gap-4 h-full">
-        {videos.map((video) => {
+        {videos.slice(0, 4).map((video) => {
           return <VideoCard key={video.title} video={video} />;
         })}
       </div>
