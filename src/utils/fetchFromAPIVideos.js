@@ -25,3 +25,21 @@ export const fetchFromAPIVideoSearch = async () => {
   );
   return data;
 };
+
+const optionsForVideo = {
+  url: BASE_URL_VideoSearch,
+  params: {
+    type: "main course ",
+    cuisine: "asian",
+    number: "12",
+  },
+  headers: {
+    "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
+
+export const fetchFromAPIVideo = async () => {
+  const { data } = await axios.get(`${BASE_URL_VideoSearch}`, optionsForVideo);
+  return data;
+};

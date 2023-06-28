@@ -77,7 +77,7 @@ const Instructions = () => {
             </div>
           ) : (
             <div>
-              <h2 className="font-bold text-[2rem] lg:text-[5rem] text-center bg-gray-light rounded-md p-4 lg:w-full mb-4">
+              <h2 className="font-bold text-[2rem] lg:text-[5rem] text-center bg-gray-light rounded-md p-4 lg:w-[90%] mb-4">
                 Instructions
               </h2>
               {dish[0].steps.map((step, index) => (
@@ -89,7 +89,6 @@ const Instructions = () => {
                   setChecked={setChecked}
                 />
               ))}
-              s
             </div>
           )}
         </div>

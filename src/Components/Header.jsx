@@ -7,6 +7,10 @@ const Header = ({ showNav, setShowNav }) => {
     setShowNav((prev) => !prev);
   };
 
+  const closeNav = () => {
+    setShowNav(false);
+  };
+
   return (
     // This is for the header, only contains the hamburger, cross, logo, and the desktop nav bar
     <header className="w-full">
@@ -16,7 +20,7 @@ const Header = ({ showNav, setShowNav }) => {
             <Link to="meals/" className="hover:text-red-pink">
               MEALS
             </Link>
-            <Link to="/" className="hover:text-red-pink">
+            <Link to="diets/" className="hover:text-red-pink">
               DIETS
             </Link>
           </nav>
@@ -50,10 +54,10 @@ const Header = ({ showNav, setShowNav }) => {
             <p className="md:text-[1.6rem]">EATS</p>
           </div>
           <nav className="hidden lg:flex lg:z-[100] lg:h-[79%] lg:text-start lg:gap-[4rem] lg:justify-center  xl:text-[1.8rem] xl:items-center">
-            <Link to="/" className="hover:text-red-pink">
+            <Link to="cuisine/" className="hover:text-red-pink">
               CUISINE
             </Link>
-            <Link to="/" className="hover:text-red-pink">
+            <Link to="videos/" className="hover:text-red-pink">
               VIDEOS
             </Link>
           </nav>
@@ -78,10 +82,18 @@ const Header = ({ showNav, setShowNav }) => {
             }
           )}
         >
-          <Link to="meals/">MEALS</Link>
-          <Link to="/">DIETS</Link>
-          <Link to="/">CUISINE</Link>
-          <Link to="/">VIDEOS</Link>
+          <Link to="meals/" onClick={closeNav}>
+            MEALS
+          </Link>
+          <Link to="diets/" onClick={closeNav}>
+            DIETS
+          </Link>
+          <Link to="cuisine/" onClick={closeNav}>
+            CUISINE
+          </Link>
+          <Link to="videos/" onClick={closeNav}>
+            VIDEOS
+          </Link>
         </nav>
       </div>
     </header>
