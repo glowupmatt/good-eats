@@ -10,8 +10,6 @@ const VideosMainGrid = () => {
   //     fetchFromAPIVideo().then((data) => setVideos(data.videos));
   //   }, []);
 
-  console.log(videos);
-
   return (
     <div className="mt-[6rem]">
       <div className="p-4">

@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
-const Header = ({ showNav, setShowNav }) => {
+const Header = ({ showNav, setShowNav, getDishes, setGetDishes }) => {
   const showNavHandler = () => {
     setShowNav((prev) => !prev);
   };
 
   const closeNav = () => {
     setShowNav(false);
+  };
+  const onClickHandler = () => {
+    setGetDishes(null);
   };
 
   return (
@@ -49,6 +52,7 @@ const Header = ({ showNav, setShowNav }) => {
                 alt="logo"
                 src="/GoodEatsFolder/logo.png"
                 className="w-[50px] md:w-[5rem]"
+                onClick={onClickHandler}
               />
             </Link>
             <p className="md:text-[1.6rem]">EATS</p>

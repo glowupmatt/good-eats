@@ -21,7 +21,6 @@ const MainCuisinesGrid = () => {
 
   const totalDishes = dishes.flat();
 
-  console.log(totalDishes);
   return (
     <div className="flex justify-center items-center">
       <div className="mt-[6rem] grid gap-4 items-center justify-center">
